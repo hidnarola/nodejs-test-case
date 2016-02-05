@@ -2,7 +2,7 @@
 
 var Transactions = require( '../models/transactions.model.js' );
 var config = require( '../config' );
-var Stripe = require( 'stripe' )( config.stripeApiKey );
+var Stripe = require( 'stripe' )( 'sk_test_JFGiiJigIPQ1veqiUUSOASBj' );
 
 exports.index = function( req, res, next ) {
     if ( req.body ) {
@@ -19,11 +19,10 @@ exports.index = function( req, res, next ) {
 };
 
 exports.createTransaction = function( req, res, next ) {
-
     Stripe.charges.create( {
         amount: req.body.amount,
         currency: req.body.currency,
-        source: req.body.token,
+        source: req.body.stripeToken,
         description: 'Charge for test@example.com'
     }, function( err, charge ) {
         if ( err ) {

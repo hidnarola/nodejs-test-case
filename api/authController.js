@@ -5,7 +5,8 @@ var jwt = require( 'jsonwebtoken' );
 var config = require( '../config' );
 
 exports.index = function( req, res ) {
-
+    console.log('login check');
+    console.log(req.body);
     // find the user
     User.findOne( {
         name: req.body.name
@@ -41,10 +42,11 @@ exports.index = function( req, res ) {
                 } );
 
                 // return the information including token as JSON
-                res.render( 'transactions', {
+                /* res.render( 'transactions', {
                     token: token,
-                    title: 'Transactions Page'
-                } );
+                   title: 'Transactions Page'
+                } );*/
+                res.redirect( 'transactions');
 
             } );
         }
@@ -53,7 +55,7 @@ exports.index = function( req, res ) {
 };
 
 exports.register = function( req, res ) {
-
+   
     // find the user
     User.findOne( {
         name: req.body.name
@@ -89,10 +91,12 @@ exports.register = function( req, res ) {
                 } );
 
                 // return the information including token as JSON
-                res.render( 'transactions', {
+                /*res.render( 'transactions', {
                     token: token,
                     title: 'Transactions Page'
-                } );
+                } );*/
+
+                res.redirect( '/');
             } );
         }
 

@@ -1,19 +1,20 @@
-<form action="/authenticate" method="POST">
-    <h1>Login to test page</h1>
-    <label for="name">Name: </label>
-    <input type="text" name="name" id="name">
-    <br>
-    <label for="password">Password: </label>
-    <input type="password" name="password" id="password">
-    <input type="submit" value="Login">
-</form>
-
-<form action="/register" method="POST">
-    <h1>Register to test page</h1>
-    <label for="name">Name: </label>
-    <input type="text" name="name" id="name">
-    <br>
-    <label for="password">Password: </label>
-    <input type="password" name="password" id="password">
-    <input type="submit" value="Register">
-</form>
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-5 col-md-3">
+            <div class="form-login">
+                <h4>Welcome</h4>
+                <form action="/authenticate" method="POST">
+                    <input type="text" id="userName" name="name" class="form-control input-sm chat-input" placeholder="username" />
+                    </br>
+                    <input type="password" id="userPassword" name="password" class="form-control input-sm chat-input" placeholder="password" /></br>
+                    <div class="wrapper">
+                        <span class="group-btn">     
+                            <input type="submit" class="btn btn-primary btn-md" value="login">
+                            <a href="/register" class="btn btn-primary btn-md">SignUp</a>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

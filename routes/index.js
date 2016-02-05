@@ -12,18 +12,27 @@ var config = require( '../config' );
 /* GET home page. */
 /*Save transaction to database*/
 
-
-
 router.post( '/authenticate', authController.index );
 router.post( '/register', authController.register );
 
 //login
-router.get( '/login', function( req, res ) {
+router.get( '/', function( req, res ) {
     res.render( 'login', {
         title: 'Login'
     } );
 } );
 
+//Register
+router.get( '/register', function( req, res ) {
+    res.render( 'register' );
+} );
+
+//Transaction
+router.get( '/transactions', function( req, res ) {
+    console.log('transaction');
+    res.render( 'transactions' );
+} );
+/*
 router.use( function( req, res, next ) {
 
     // check header or url parameters or post parameters for token
@@ -51,12 +60,11 @@ router.use( function( req, res, next ) {
         // if there is no token
         // return an error
         return res.status( 200 ).send( {
-            success: false,
-            message: 'No token provided.'
+            'success': 'false',
+            'message': 'No token provided'
         } );
     }
-} );
-
+} );*/
 
 router.post( '/createtransaction', transactionController.createTransaction );
 
